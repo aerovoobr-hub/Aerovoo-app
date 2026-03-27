@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no"/>
+<meta name="theme-color" content="#264273"/>
+<title>Viagem Ana e Wellington — Itália 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800;900&family=Questrial&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet"/>
+<style>
+:root{
+  --navy:#264273;--navy-dark:#1a2d52;--navy-light:#3a5da8;
+  --ash:#e3e2e0;--ash-light:#f2f1ef;--ash-mid:#d4d3d0;
+  --white:#ffffff;--text-dark:#1a1f2e;--text-mid:#5a6175;--text-muted:#9aa0b0;
+  --shadow-soft:0 2px 16px rgba(38,66,115,.08);
+  --shadow-card:0 4px 24px rgba(38,66,115,.12);
+  --shadow-deep:0 8px 40px rgba(38,66,115,.18);
+  --radius-sm:8px;--radius-md:14px;--radius-lg:20px;--radius-xl:28px;
+  --green:#0e7a5f;--red:#c0392b;--blue:#0284c7;--purple:#6b3db5;--gold:#b8952a;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:#edecea;font-family:'Questrial',sans-serif;display:flex;justify-content:center;min-height:100vh;-webkit-font-smoothing:antialiased}
+.mi{font-family:'Material Icons Round';font-style:normal;line-height:1;display:inline-block;vertical-align:middle;user-select:none}
+.app{width:100%;max-width:400px;background:var(--ash-light);display:flex;flex-direction:column;min-height:100vh;position:relative}
+
+/* HERO */
+.hero{background:linear-gradient(160deg,var(--navy-dark) 0%,var(--navy) 55%,var(--navy-light) 100%);flex-shrink:0;position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");pointer-events:none}
+.hero-brand{display:flex;align-items:center;justify-content:center;padding:20px 20px 12px;border-bottom:1px solid rgba(255,255,255,.08);position:relative;z-index:1}
+.brand-wordmark{font-family:'Montserrat',sans-serif;font-weight:800;font-size:13px;letter-spacing:4px;color:rgba(255,255,255,.6);text-transform:uppercase}
+.hero-body{padding:16px 22px 22px;position:relative;z-index:1}
+.hero-eyebrow{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:600;letter-spacing:3px;color:rgba(255,255,255,.4);text-transform:uppercase;margin-bottom:6px}
+.hero-title{font-family:'Montserrat',sans-serif;font-size:22px;font-weight:700;color:#fff;line-height:1.2;margin-bottom:10px}
+.hero-subtitle{display:flex;align-items:center;gap:6px;color:rgba(255,255,255,.75);font-size:13px;margin-bottom:8px}
+.hero-subtitle .mi{font-size:14px;color:rgba(255,255,255,.55)}
+.hero-meta{display:flex;align-items:center;gap:10px;margin-top:4px}
+.hero-dates{font-family:'Montserrat',sans-serif;font-size:10px;color:rgba(255,255,255,.45);letter-spacing:1px}
+.hero-code{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:6px;padding:3px 10px;font-family:'Montserrat',sans-serif;font-size:9px;font-weight:600;color:rgba(255,255,255,.6);letter-spacing:2px}
+
+/* TABS */
+.tabs{display:flex;background:var(--white);border-bottom:1px solid var(--ash-mid);position:sticky;top:0;z-index:10;box-shadow:0 2px 8px rgba(38,66,115,.06)}
+.tab{flex:1;padding:11px 4px 9px;border:none;background:none;border-bottom:2px solid transparent;color:var(--text-muted);font-family:'Montserrat',sans-serif;font-size:8px;font-weight:600;letter-spacing:1.5px;cursor:pointer;text-align:center;margin-bottom:-1px;transition:all .2s}
+.tab .mi{font-size:18px;display:block;margin-bottom:3px}
+.tab.on{color:var(--navy);border-bottom-color:var(--navy);font-weight:700}
+
+/* DAY NAV */
+.daynav-wrap{background:var(--white);border-bottom:1px solid var(--ash-mid);overflow-x:auto;position:sticky;top:49px;z-index:9}
+.daynav-wrap::-webkit-scrollbar{display:none}
+.daynav{display:flex;padding:10px 14px;gap:8px;min-width:max-content}
+.pill{display:flex;flex-direction:column;align-items:center;justify-content:center;width:52px;height:52px;border-radius:12px;cursor:pointer;border:1.5px solid var(--ash-mid);background:var(--ash-light);transition:all .2s;text-align:center}
+.pill.on{background:var(--c);border-color:var(--c);box-shadow:0 4px 14px rgba(38,66,115,.22)}
+.pill-n{font-family:'Montserrat',sans-serif;font-size:16px;font-weight:800;color:var(--navy);line-height:1}
+.pill-m{font-family:'Montserrat',sans-serif;font-size:8px;color:var(--text-muted);font-weight:600;margin-top:3px;text-transform:uppercase;letter-spacing:.5px}
+.pill.on .pill-n{color:#fff}
+.pill.on .pill-m{color:rgba(255,255,255,.7)}
+.pill-dot{width:4px;height:4px;border-radius:50%;margin-top:3px;background:var(--c);opacity:0}
+.pill.today:not(.on) .pill-dot{opacity:1}
+
+/* PANELS */
+.dpanel{display:none;padding:16px 14px 32px}
+.dpanel.on{display:block}
+.dhead{margin-bottom:16px}
+.dhead-top{display:flex;align-items:center;gap:8px;margin-bottom:4px;flex-wrap:wrap}
+.dbadge{color:#fff;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:700;padding:3px 12px;border-radius:30px;letter-spacing:.5px}
+.dweek{font-family:'Montserrat',sans-serif;font-size:16px;font-weight:700;color:var(--text-dark)}
+.todaybadge{background:#fef3c7;color:#92400e;font-family:'Montserrat',sans-serif;font-size:8px;font-weight:700;padding:2px 9px;border-radius:20px;letter-spacing:1px}
+.dcity{font-size:12px;color:var(--text-muted);display:flex;align-items:center;gap:4px;margin-top:2px}
+.dcity .mi{font-size:13px}
+
+/* TIMELINE */
+.item{display:flex;gap:10px;margin-bottom:10px}
+.tl{display:flex;flex-direction:column;align-items:center;width:16px;flex-shrink:0}
+.dot{width:10px;height:10px;border-radius:50%;margin-top:15px;flex-shrink:0;border:2px solid var(--ash-light);box-shadow:0 0 0 2px var(--d)}
+.line{width:2px;flex:1;background:var(--ash-mid);margin-top:4px;border-radius:1px}
+
+/* CARDS */
+.card{flex:1;border-radius:var(--radius-md);border:1px solid;overflow:hidden;cursor:pointer;box-shadow:var(--shadow-soft);transition:box-shadow .2s,transform .15s}
+.card:active{transform:scale(.99)}
+.card:hover{box-shadow:var(--shadow-card)}
+.cmain{padding:12px 14px}
+.ctop{display:flex;justify-content:space-between;align-items:flex-start}
+.cleft{flex:1;min-width:0}
+.cbadge{display:flex;align-items:center;gap:5px;margin-bottom:5px}
+.cbadge .mi{font-size:14px}
+.cblabel{font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:2px;font-weight:700;text-transform:uppercase}
+.ctitle{font-family:'Montserrat',sans-serif;font-size:12px;font-weight:600;color:var(--text-dark);line-height:1.35}
+.csub{font-size:11.5px;color:var(--text-mid);margin-top:3px;line-height:1.45}
+.cdetail{font-size:10.5px;color:var(--text-mid);margin-top:6px;padding-top:6px;border-top:1px solid rgba(0,0,0,.05);line-height:1.65}
+.ctime{font-family:'Montserrat',sans-serif;font-size:11px;color:var(--text-muted);margin-left:10px;flex-shrink:0;font-weight:500}
+.cinfo-btn{
+  display:flex;align-items:center;gap:6px;
+  margin:8px 14px 0;
+  padding:7px 12px;
+  background:rgba(38,66,115,.05);
+  border:1px solid rgba(38,66,115,.15);
+  border-radius:20px;
+  cursor:pointer;
+  font-family:'Montserrat',sans-serif;
+  font-size:9px;font-weight:700;
+  color:var(--navy);letter-spacing:.5px;
+  text-transform:uppercase;
+  transition:background .2s,border-color .2s;
+  width:fit-content;
+}
+.cinfo-btn:hover{background:rgba(38,66,115,.1);border-color:rgba(38,66,115,.3)}
+.cinfo-btn .mi{font-size:14px}
+.cfoot{display:flex;align-items:center;justify-content:flex-end;padding:5px 13px 8px;gap:4px}
+.cftext{font-family:'Montserrat',sans-serif;font-size:8px;color:var(--text-muted);letter-spacing:1px;font-weight:600}
+.cfoot .mi{font-size:14px;color:var(--text-muted);transition:transform .2s}
+.card.open .cfoot .mi{transform:rotate(180deg)}
+.clinks{display:none;border-top:1px solid rgba(0,0,0,.05);padding:10px 12px;gap:8px;flex-direction:column}
+.card.open .clinks{display:flex}
+.dlink{display:flex;align-items:center;gap:10px;background:var(--white);border:1px solid var(--ash-mid);border-radius:var(--radius-sm);padding:10px 12px;text-decoration:none;transition:border-color .2s}
+.dlink:hover{border-color:var(--navy)}
+.dlink .mi{font-size:18px;color:var(--navy);flex-shrink:0}
+.dlname{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:600;color:var(--text-dark)}
+.dlsub{font-size:10px;color:var(--text-muted);margin-top:1px}
+.dlarr{margin-left:auto;color:var(--navy)}
+.nodoc{font-size:11px;color:var(--text-muted);text-align:center;padding:4px;display:flex;align-items:center;justify-content:center;gap:5px}
+
+/* CHIPS */
+.emergency-chip{display:inline-flex;align-items:center;gap:5px;background:rgba(192,57,43,.08);border:1px solid rgba(192,57,43,.2);border-radius:20px;padding:3px 10px;font-size:10px;color:var(--red);font-family:'Montserrat',sans-serif;font-weight:600;margin-top:5px;cursor:pointer;text-decoration:none}
+.emergency-chip .mi{font-size:12px}
+.ingresso-chip{display:inline-flex;align-items:center;gap:3px;background:rgba(184,149,42,.1);border:1px solid rgba(184,149,42,.25);border-radius:20px;padding:2px 9px;font-size:9px;color:#8a6a0a;font-family:'Montserrat',sans-serif;font-weight:700;letter-spacing:.5px;margin-top:4px}
+.ingresso-chip .mi{font-size:11px}
+.ig-link{display:inline-flex;align-items:center;gap:4px;color:var(--navy);text-decoration:none;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:600;border-bottom:1px solid rgba(38,66,115,.2);padding-bottom:1px}
+.ig-link .mi{font-size:12px}
+.penalty-note{margin-top:6px;padding:6px 10px;background:rgba(192,57,43,.05);border-radius:6px;border-left:2px solid rgba(192,57,43,.3);font-size:10.5px;color:var(--red);line-height:1.5}
+
+/* DOCS */
+.docnav-wrap{background:var(--white);border-bottom:1px solid var(--ash-mid);overflow-x:auto;position:sticky;top:49px;z-index:9}
+.docnav-wrap::-webkit-scrollbar{display:none}
+.docnav{display:flex;padding:10px 14px;gap:8px;min-width:max-content}
+.doctab{padding:7px 16px;border-radius:30px;cursor:pointer;font-family:'Montserrat',sans-serif;font-size:10px;font-weight:600;color:var(--text-muted);border:1.5px solid var(--ash-mid);background:var(--ash-light);white-space:nowrap;transition:all .2s;letter-spacing:.5px}
+.doctab.on{background:var(--navy);border-color:var(--navy);color:#fff}
+.docpanel{display:none;padding:16px 14px 32px}
+.docpanel.on{display:block}
+.slabel{font-family:'Montserrat',sans-serif;font-size:9px;color:var(--text-muted);letter-spacing:2.5px;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:5px;text-transform:uppercase}
+.slabel .mi{font-size:13px}
+.gbtn{width:100%;display:flex;align-items:center;gap:14px;border:none;border-radius:var(--radius-md);padding:15px 16px;cursor:pointer;margin-bottom:10px;text-align:left;transition:opacity .2s}
+.gbtn:hover{opacity:.9}
+.gbtn .mi{font-size:22px;color:#fff;flex-shrink:0}
+.gbtitle{color:#fff;font-family:'Montserrat',sans-serif;font-size:12px;font-weight:700;display:block;letter-spacing:.3px}
+.gbsub{color:rgba(255,255,255,.6);font-size:11px;margin-top:2px;display:block}
+.gbarr{color:rgba(255,255,255,.4);font-size:20px;margin-left:auto}
+.dfile{display:flex;align-items:center;gap:12px;background:var(--white);border-radius:var(--radius-md);padding:13px 14px;margin-bottom:8px;border:1px solid var(--ash-mid);text-decoration:none;transition:border-color .2s,box-shadow .2s;box-shadow:var(--shadow-soft)}
+.dfile:hover{border-color:var(--navy);box-shadow:var(--shadow-card)}
+.dfile .mi{font-size:20px;flex-shrink:0}
+.dfname{font-family:'Montserrat',sans-serif;font-size:11.5px;font-weight:600;color:var(--text-dark)}
+.dftag{display:inline-block;margin-top:3px;font-family:'Montserrat',sans-serif;font-size:8px;letter-spacing:2px;border-radius:5px;padding:2px 7px;font-weight:700}
+.dfarr{margin-left:auto;flex-shrink:0;color:var(--navy)}
+
+/* CONTACT */
+.cwrap{padding:16px 14px 32px}
+.ccard{background:linear-gradient(145deg,var(--navy-dark),var(--navy) 60%,var(--navy-light));border-radius:var(--radius-lg);padding:20px;margin-bottom:14px;box-shadow:var(--shadow-deep);position:relative;overflow:hidden}
+.ccard::after{content:'';position:absolute;top:-30px;right:-30px;width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,.04)}
+.clabel{font-family:'Montserrat',sans-serif;font-size:8px;color:rgba(255,255,255,.4);letter-spacing:3px;margin-bottom:12px;text-transform:uppercase;font-weight:600}
+.crow{display:flex;align-items:center;gap:14px;position:relative;z-index:1}
+.cav{width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,.15);border:2px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-size:20px;font-weight:800;color:#fff;flex-shrink:0}
+.cname{font-family:'Montserrat',sans-serif;font-size:16px;font-weight:700;color:#fff}
+.crole{font-size:11px;color:rgba(255,255,255,.55);margin-top:2px}
+.citem{display:flex;align-items:center;gap:13px;background:var(--white);border-radius:var(--radius-md);padding:13px 15px;margin-bottom:10px;border:1px solid var(--ash-mid);text-decoration:none;box-shadow:var(--shadow-soft);transition:border-color .2s,box-shadow .2s}
+.citem:hover{border-color:var(--navy);box-shadow:var(--shadow-card)}
+.citem .mi{font-size:22px;flex-shrink:0}
+.cilabel{font-family:'Montserrat',sans-serif;font-size:9px;color:var(--text-muted);letter-spacing:1.5px;font-weight:600;text-transform:uppercase}
+.cival{font-family:'Montserrat',sans-serif;font-size:13px;font-weight:700;color:var(--text-dark);margin-top:2px}
+.cisub{font-size:10px;color:var(--text-muted);margin-top:1px}
+.cidot{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin-left:auto;flex-shrink:0}
+.cidot .mi{font-size:16px;color:#fff}
+.codebox{background:rgba(107,61,181,.06);border-radius:var(--radius-md);padding:16px;border:1px solid rgba(107,61,181,.18);margin-top:4px}
+.codelabel{font-family:'Montserrat',sans-serif;font-size:9px;color:var(--purple);letter-spacing:2px;margin-bottom:6px;font-weight:700;text-transform:uppercase}
+.codeval{font-family:'Montserrat',sans-serif;font-size:15px;font-weight:800;color:var(--purple);letter-spacing:2px}
+.codehint{font-size:10px;color:var(--text-muted);margin-top:4px}
+.csection-title{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:2.5px;color:var(--text-muted);text-transform:uppercase;margin:16px 0 10px;display:flex;align-items:center;gap:5px}
+.csection-title .mi{font-size:14px}
+
+/* FOOTER */
+.footer{background:var(--white);border-top:1px solid var(--ash-mid);padding:12px 20px 18px;display:flex;flex-direction:column;align-items:center;gap:5px}
+.flogo{display:flex;align-items:center;gap:2px}
+.ft{font-family:'Montserrat',sans-serif;font-size:14px;font-weight:900;color:var(--navy);letter-spacing:-.5px}
+.fc{width:16px;height:16px;border-radius:50%;background:var(--navy);display:flex;align-items:center;justify-content:center;margin:0 1px}
+.fsub{font-family:'Montserrat',sans-serif;font-size:8px;color:var(--text-muted);letter-spacing:2px;font-weight:500;text-transform:uppercase}
+
+/* GUIDE MODAL */
+.mov{position:fixed;inset:0;z-index:100;background:rgba(10,18,40,.7);display:none;align-items:flex-end;justify-content:center;backdrop-filter:blur(4px)}
+.mov.on{display:flex}
+.modal{background:var(--white);border-radius:var(--radius-xl) var(--radius-xl) 0 0;width:100%;max-width:400px;max-height:88vh;overflow-y:auto;padding-bottom:40px}
+.mhdr{border-radius:var(--radius-xl) var(--radius-xl) 0 0;padding:24px 20px 20px;position:relative}
+.mclose{position:absolute;top:14px;right:14px;background:rgba(255,255,255,.2);border:none;border-radius:50%;width:30px;height:30px;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.mclose .mi{font-size:16px;color:#fff}
+.micon{margin-bottom:8px}
+.micon .mi{font-size:30px;color:#fff}
+.mtitle{font-family:'Montserrat',sans-serif;color:#fff;font-size:18px;font-weight:700}
+.msub{font-family:'Montserrat',sans-serif;color:rgba(255,255,255,.55);font-size:9px;margin-top:4px;letter-spacing:2px;text-transform:uppercase}
+.mbody{padding:16px 16px 0}
+.msec{margin-bottom:16px}
+.msh{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;margin-bottom:8px;display:flex;align-items:center;gap:5px;text-transform:uppercase;letter-spacing:.5px}
+.msh .mi{font-size:14px}
+.tip{display:flex;gap:9px;margin-bottom:7px;background:var(--ash-light);border-radius:var(--radius-sm);padding:9px 11px;border-left:3px solid}
+.tip .mi{font-size:13px;flex-shrink:0;margin-top:2px}
+.tipt{font-size:11.5px;color:var(--text-dark);line-height:1.55}
+
+/* INFO MODAL (full screen "page") */
+.info-overlay{position:fixed;inset:0;z-index:200;background:var(--ash-light);display:none;flex-direction:column;overflow-y:auto;max-width:400px;margin:0 auto}
+.info-overlay.on{display:flex}
+.info-hero{position:relative;height:240px;flex-shrink:0;overflow:hidden;background:var(--navy-dark)}
+.info-hero img{width:100%;height:100%;object-fit:cover;display:block}
+.info-hero-overlay{position:absolute;inset:0;background:linear-gradient(to bottom,rgba(0,0,0,.2) 0%,rgba(0,0,0,.65) 100%)}
+.info-back{position:absolute;top:14px;left:14px;background:rgba(255,255,255,.2);border:none;border-radius:50%;width:36px;height:36px;cursor:pointer;display:flex;align-items:center;justify-content:center;backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.3)}
+.info-back .mi{font-size:20px;color:#fff}
+.info-hero-content{position:absolute;bottom:0;left:0;right:0;padding:16px 20px}
+.info-category{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:2px;color:rgba(255,255,255,.7);text-transform:uppercase;margin-bottom:4px}
+.info-title{font-family:'Montserrat',sans-serif;font-size:20px;font-weight:800;color:#fff;line-height:1.2}
+.info-body{padding:20px 18px;flex:1}
+.info-desc{font-size:13.5px;color:var(--text-mid);line-height:1.7;margin-bottom:16px}
+.info-section-label{font-family:'Montserrat',sans-serif;font-size:9px;font-weight:700;letter-spacing:2px;color:var(--text-muted);text-transform:uppercase;margin-bottom:10px;display:flex;align-items:center;gap:5px}
+.info-section-label .mi{font-size:13px;color:var(--navy)}
+.info-tip{display:flex;gap:8px;margin-bottom:8px;padding:8px 12px;background:var(--white);border-radius:10px;border:1px solid var(--ash-mid);box-shadow:var(--shadow-soft)}
+.info-tip .mi{font-size:14px;color:var(--navy);flex-shrink:0;margin-top:1px}
+.info-tip-text{font-size:11.5px;color:var(--text-dark);line-height:1.5}
+.info-actions{display:flex;flex-direction:column;gap:10px;margin-top:20px}
+.info-action-btn{display:flex;align-items:center;gap:12px;padding:14px 16px;border-radius:var(--radius-md);text-decoration:none;border:1px solid var(--ash-mid);background:var(--white);box-shadow:var(--shadow-soft);transition:border-color .2s,box-shadow .2s}
+.info-action-btn:hover{border-color:var(--navy);box-shadow:var(--shadow-card)}
+.info-action-btn .mi{font-size:20px;flex-shrink:0}
+.info-action-label{font-family:'Montserrat',sans-serif;font-size:11px;font-weight:700;color:var(--text-dark);letter-spacing:.3px}
+.info-action-sub{font-size:10px;color:var(--text-muted);margin-top:1px}
+.info-action-arr{margin-left:auto;color:var(--navy)}
+.info-action-arr .mi{font-size:18px}
+
+@media(min-width:420px){
+  body{padding:20px 12px}
+  .app{border-radius:var(--radius-xl);min-height:auto;box-shadow:0 30px 90px rgba(38,66,115,.18)}
+  .info-overlay{border-radius:var(--radius-xl);overflow:hidden}
+}
+</style>
+</head>
+<body>
+<div class="app">
+
+<div class="hero">
+  <div class="hero-brand"><span class="brand-wordmark">AeroVoo Viagens</span></div>
+  <div class="hero-body">
+    <div class="hero-eyebrow">Roteiro Personalizado</div>
+    <div class="hero-title" id="hname"></div>
+    <div class="hero-subtitle"><span class="mi">flight_takeoff</span><span id="hdest"></span></div>
+    <div class="hero-meta"><span class="hero-dates" id="hdates"></span><span class="hero-code" id="hcode"></span></div>
+  </div>
+</div>
+
+<div class="tabs">
+  <button class="tab on" onclick="showSec('roteiro',this)"><span class="mi">calendar_today</span>ROTEIRO</button>
+  <button class="tab" onclick="showSec('docs',this)"><span class="mi">folder_open</span>DOCS</button>
+  <button class="tab" onclick="showSec('contato',this)"><span class="mi">support_agent</span>CONTATO</button>
+</div>
+
+<div class="content">
+  <div id="s-roteiro">
+    <div class="daynav-wrap"><div class="daynav" id="daynav"></div></div>
+    <div id="dpanels"></div>
+  </div>
+  <div id="s-docs" style="display:none">
+    <div class="docnav-wrap"><div class="docnav" id="docnav"></div></div>
+    <div id="docpanels"></div>
+  </div>
+  <div id="s-contato" style="display:none">
+    <div class="cwrap">
+      <div class="ccard">
+        <div class="clabel">Sua Consultora</div>
+        <div class="crow">
+          <div class="cav">G</div>
+          <div><div class="cname">Gabrielle</div><div class="crole">Fundadora e CEO — AeroVoo Viagens</div></div>
+        </div>
+      </div>
+      <a class="citem" href="https://wa.me/5599163738">
+        <span class="mi" style="color:#25D366">chat</span>
+        <div><div class="cilabel">WhatsApp</div><div class="cival">+55 99163-7381</div><div class="cisub">Toque para abrir</div></div>
+        <div class="cidot" style="background:#25D366"><span class="mi">arrow_outward</span></div>
+      </a>
+      <a class="citem" href="mailto:aerovoobr@gmail.com">
+        <span class="mi" style="color:var(--navy)">mail_outline</span>
+        <div><div class="cilabel">E-mail</div><div class="cival">aerovoobr@gmail.com</div><div class="cisub">Toque para enviar</div></div>
+        <div class="cidot" style="background:var(--navy)"><span class="mi">arrow_outward</span></div>
+      </a>
+      <a class="citem" href="https://instagram.com/aerovoo">
+        <span class="mi" style="color:#e1306c">photo_camera</span>
+        <div><div class="cilabel">Instagram</div><div class="cival">@aerovoo</div><div class="cisub">Dicas de viagem!</div></div>
+        <div class="cidot" style="background:#e1306c"><span class="mi">arrow_outward</span></div>
+      </a>
+
+      <div class="csection-title"><span class="mi">health_and_safety</span>SEGURO VIAGEM — EMERGÊNCIA</div>
+      <a class="citem" href="https://wa.me/551150399001">
+        <span class="mi" style="color:#25D366">chat</span>
+        <div><div class="cilabel">WhatsApp Seguro — 24h</div><div class="cival">+55 11 5039-9001</div><div class="cisub">Central de Assistência 24 horas</div></div>
+        <div class="cidot" style="background:#25D366"><span class="mi">arrow_outward</span></div>
+      </a>
+      <a class="citem" href="tel:+551150399001">
+        <span class="mi" style="color:var(--red)">phone</span>
+        <div><div class="cilabel">Telefone Seguro — 24h</div><div class="cival">+55 11 5039-9001</div><div class="cisub">Central 24 horas · Assistance 24 hours</div></div>
+        <div class="cidot" style="background:var(--red)"><span class="mi">arrow_outward</span></div>
+      </a>
+      <a class="citem" href="https://drive.google.com/drive/u/3/folders/11MI6uL-WLCEy__AMJJ-KgOnlahOeCkXO/" target="_blank" rel="noopener">
+        <span class="mi" style="color:var(--purple)">verified_user</span>
+        <div><div class="cilabel">Seguro Viagem</div><div class="cival">Ver Apólice</div><div class="cisub">Abrir no Google Drive</div></div>
+        <div class="cidot" style="background:var(--purple)"><span class="mi">open_in_new</span></div>
+      </a>
+
+      <div class="csection-title"><span class="mi">account_balance</span>EMBAIXADA DO BRASIL NA ITÁLIA</div>
+      <a class="citem" href="tel:+390644198200">
+        <span class="mi" style="color:var(--green)">phone</span>
+        <div><div class="cilabel">Embaixada — Roma</div><div class="cival">+39 06 44 19 82 00</div><div class="cisub">Via delle Alpi Apuane, 20 · Roma</div></div>
+        <div class="cidot" style="background:var(--green)"><span class="mi">arrow_outward</span></div>
+      </a>
+      <a class="citem" href="tel:+393382745400">
+        <span class="mi" style="color:var(--red)">emergency</span>
+        <div><div class="cilabel">Plantão Consular — Emergências</div><div class="cival">+39 338 274 5400</div><div class="cisub">Somente situações de emergência</div></div>
+        <div class="cidot" style="background:var(--red)"><span class="mi">arrow_outward</span></div>
+      </a>
+      <a class="citem" href="mailto:brasemb.roma@itamaraty.gov.br">
+        <span class="mi" style="color:var(--navy)">mail_outline</span>
+        <div><div class="cilabel">E-mail Embaixada</div><div class="cival">brasemb.roma@itamaraty.gov.br</div><div class="cisub">Toque para enviar</div></div>
+        <div class="cidot" style="background:var(--navy)"><span class="mi">arrow_outward</span></div>
+      </a>
+
+      <div class="codebox">
+        <div class="codelabel">Código da Viagem</div>
+        <div class="codeval" id="ccode"></div>
+        <div class="codehint">Informe em qualquer contato com a AeroVoo</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="footer">
+  <div class="flogo">
+    <span class="ft">Aero</span>
+    <div class="fc"><svg width="9" height="9" viewBox="0 0 20 20" fill="none"><g transform="rotate(-40 10 10)"><ellipse cx="10" cy="10" rx="7" ry="2" fill="white"/><ellipse cx="16" cy="10" rx="2" ry="1.5" fill="white"/><polygon points="11,8.2 4,1 2,3 8.5,9.3" fill="white"/><polygon points="11,11.8 4,19 2,17 8.5,10.7" fill="white"/></g></svg></div>
+    <span class="ft">Voo</span>
+  </div>
+  <div class="fsub">Viagens Personalizadas · 2026</div>
+</div>
+</div><!-- /app -->
+
+<!-- GUIDE MODAL -->
+<div class="mov" id="guideModal">
+  <div class="modal">
+    <div class="mhdr" id="mhdr">
+      <button class="mclose" onclick="closeGuide()"><span class="mi">close</span></button>
+      <div class="micon"><span class="mi" id="micon"></span></div>
+      <div class="mtitle" id="mtitle"></div>
+      <div class="msub" id="msub"></div>
+    </div>
+    <div class="mbody" id="mbody"></div>
+  </div>
+</div>
+
+<!-- INFO OVERLAY (full screen "page") -->
+<div class="info-overlay" id="infoOverlay">
+  <div class="info-hero" id="infoHero">
+    <img id="infoImg" src="" alt="" onerror="this.style.display='none'"/>
+    <div class="info-hero-overlay"></div>
+    <button class="info-back" onclick="closeInfo()"><span class="mi">arrow_back</span></button>
+    <div class="info-hero-content">
+      <div class="info-category" id="infoCategory"></div>
+      <div class="info-title" id="infoTitle"></div>
+    </div>
+  </div>
+  <div class="info-body" id="infoBody"></div>
+</div>
+
+<script>
+/* ── DRIVE LINKS ── */
+var DRIVE = {
+  flights:  "https://drive.google.com/drive/u/3/folders/1XGFRb0wch7nrZ8ICdA3UrswGKRu_K1b2/",
+  trains:   "https://drive.google.com/drive/u/3/folders/1sABeFD7svvwvZRiayhhYBRf3anzXmTRq",
+  hotels:   "https://drive.google.com/drive/u/3/folders/1NkMqWa4VUiakh3cqcBkxDaiRflqqlPTJ",
+  ingressos:"https://drive.google.com/drive/u/3/folders/1JC-LvQWouJXZR9XxZROXRbzK98aK1UDx/",
+  restaurants:"https://drive.google.com/drive/u/3/folders/1kVpO2UNsVm3dAyGYB9TBa-fuGl5YNBQF",
+  insurance:"https://drive.google.com/drive/u/3/folders/11MI6uL-WLCEy__AMJJ-KgOnlahOeCkXO/"
+};
+
+/* ── ATTRACTION INFO DATABASE ── */
+var INFOS = {
+  duomo_milano:{
+    category:"Patrimônio Histórico · Milão",
+    title:"Duomo di Milano",
+    img:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Cathedral_of_Milan_from_Piazza_del_Duomo.jpg/800px-Cathedral_of_Milan_from_Piazza_del_Duomo.jpg",
+    desc:"Uma das catedrais góticas mais espetaculares do mundo, o Duomo di Milano é o símbolo máximo da cidade. Sua construção foi iniciada em 1386 e levou quase seis séculos para ser concluída. O resultado é um edifício deslumbrante, com mais de 3.400 estátuas, 135 gárgulas e 96 gigantes ornamentando sua fachada de mármore branco de Candoglia.\n\nO terraço oferece uma das vistas mais memoráveis da Itália, com a cidade de Milão se estendendo até os Alpes ao fundo. No interior, os vitrais do século XIV iluminam uma nave imponente com quase 47 metros de altura.",
+    tips:[
+      "Visite o terraço de manhã cedo — vista sem aglomeração e luz dourada perfeita para fotos",
+      "A entrada da catedral é gratuita; terraço e museu são pagos",
+      "Vista de cima: acesso de elevador (mais rápido) ou pela escadaria",
+      "Código de vestimenta obrigatório — ombros e joelhos cobertos"
+    ],
+    website:"https://www.duomomilano.it/",
+    maps:"https://maps.google.com/?q=Duomo+di+Milano",
+    ig:"https://www.instagram.com/duomomilano/"
+  },
+  galleria_ve:{
+    category:"Arquitetura Histórica · Milão",
+    title:"Galleria Vittorio Emanuele II",
+    img:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/bc/Galleria_Vittorio_Emanuele_II_floor.jpg/800px-Galleria_Vittorio_Emanuele_II_floor.jpg",
+    desc:"Inaugurada em 1877, a Galleria Vittorio Emanuele II é uma das galerias comerciais mais antigas e elegantes do mundo. Conhecida como 'o salotto di Milano' (a sala de estar de Milão), ela conecta a Piazza del Duomo à Piazza della Scala sob uma imponente arcada de ferro e vidro com 47 metros de altura.\n\nAlém da arquitetura impressionante, a Galleria abriga algumas das marcas de luxo mais exclusivas do mundo, além de cafés históricos como o Campari e o Biffi, onde figuras como Verdi e Toscanini costumavam se sentar.",
+    tips:[
+      "Gire o calcanhar no mosaico do touro — tradição milanesa de boa sorte",
+      "O Café Campari serve o negroni mais elegante de Milão",
+      "Melhor fotografia na hora do almoço, com a luz zenital filtrando pela cúpula"
+    ],
+    website:"https://www.galleriavittorioemanuele.it/",
+    maps:"https://maps.google.com/?q=Galleria+Vittorio+Emanuele+II+Milano"
+  },
+  quadrilatero:{
+    category:"Moda & Luxo · Milão",
+    title:"Quadrilátero da Moda",
+    img:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Via_Montenapoleone.jpg/800px-Via_Montenapoleone.jpg",
+    desc:"O Quadrilátero della Moda é o coração do luxo milanês e um dos destinos de compras mais prestigiados do planeta. Delimitado pelas ruas Via Montenapoleone, Via della Spiga, Via Sant'Andrea e Corso Venezia, o bairro reúne as boutiques das maiores grifes do mundo — Gucci, Prada, Versace, Armani, Valentino, Hermès e muitas outras.\n\nMesmo sem compras, passear pelas ruas é uma experiência estética única: vitrines como obras de arte, palacetes históricos transformados em lojas e uma atmosfera de elegância que só Milão consegue oferecer.",
+    tips:[
+      "Via Montenapoleone é a rua mais cara do mundo em valor de aluguel",
+      "Muitas lojas oferecem tax-free para compras acima de €154",
+      "O Bar Cova (Via Montenapoleone) serve o melhor panettone da cidade"
+    ],
+    maps:"https://maps.google.com/?q=Via+Montenapoleone+Milano"
+  },
+  brera:{
+    category:"Arte & Cultura · Milão",
+    title:"Bairro de Brera",
+    img:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/d6/Brera_Milan.jpg/800px-Brera_Milan.jpg",
+    desc:"Brera é o bairro mais bohème e artístico de Milão — uma coleção encantadora de ruelas de pedra, galerias de arte, antiquários, livrarias e restaurantes intimistas. É o único bairro de Milão onde o ritmo desacelera e os moradores ainda fazem a vida na rua.\n\nA Pinacoteca di Brera, instalada em um palácio do século XVII, abriga uma das maiores coleções de pintura italiana do mundo, incluindo obras-primas de Raphael, Caravaggio e Mantegna. Ao anoitecer, as ruas se enchem de milaneses em busca do aperitivo perfeito.",
+    tips:[
+      "Melhor horário: fins de tarde, com o sol dourado iluminando as vielas",
+      "Via Madonnina e Vicolo dei Lavandai são as ruas mais fotogênicas",
+      "Pinacoteca di Brera: aberta de terça a domingo, entrada cerca de €15",
+      "O Bar Jamaica é o bar histórico dos artistas — frequentado desde os anos 50"
+    ],
+    website:"https://www.pinacotecabrera.org/",
+    maps:"https://maps.google.com/?q=Brera+Milano"
+  },
+  the_roof:{
+    category:"Restaurante · Milão",
+    title:"The Roof Milano",
+    img:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Cathedral_of_Milan_from_Piazza_del_Duomo.jpg/800px-Cathedral_of_Milan_from_Piazza_del_Duomo.jpg",
+    desc:"O The Roof Milano é o restaurante rooftop do The Square Milano Duomo — uma experiência gastronômica única com vista panorâmica direta para o Duomo. O menu combina culinária italiana contemporânea com influências mediterrâneas, usando ingredientes sazonais de alta qualidade.\n\nA atmosfera ao entardecer, quando o sol ilumina o mármore do Duomo e a cidade ganha tons dourados, é simplesmente inesquecível.",
+    tips:[
+      "Reserve com antecedência — mesa com vista para o Duomo esgota rápido",
+      "O aperitivo (18h30–19h) é uma opção mais acessível com vista igual",
+      "Dress code elegante/smart casual"
+    ],
+    ig:"https://www.instagram.com/theroofmilano/",
+    maps:"https://maps.google.com/?q=The+Roof+Milano+Square+Hotel"
+  },
+  portrait_10_11:{
+    category:"Restaurante · Milão",
+    title:"10|11 Portrait Milano",
+    img:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2e/Via_Montenapoleone.jpg/800px-Via_Montenapoleone.jpg",
+    desc:"O 10|11 Portrait è o restaurante do lendário hotel Portrait Milano, localizado no coração do Quadrilátero della Moda. Com culinária italiana refinada e ambiente de design exclusivo da família Ferragamo, é um dos almoços mais sofisticados de Milão.\n\nO menu valoriza os produtos sazonais italianos, com pratos elegantes e apresentação impecável. O ambiente combina tradição italiana com design contemporâneo de luxo.",
+    tips:[
+      "Reserve pelo WhatsApp +39 345 7279634",
+      "O menu de almoço (tasting ou à la carte) é a melhor relação custo-benefício",
+      "Localizado na Via Sant'Andrea, 10 — no coração da moda milanesa"
+    ],
+    ig:"https://www.instagram.com/10_11milano/",
+    maps:"https://maps.google.com/?q=10+11+Portrait+Milano+Via+Sant'Andrea"
+  },
+  maio_restaurante:{
+    category:"Restaurante · Milão",
+    title:"Restaurante Maio",
+    img:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Cathedral_of_Milan_from_Piazza_del_Duomo.jpg/800px-Cathedral_of_Milan_from_Piazza_del_Duomo.jpg",
+    desc:"O Maio está localizado no 7º piso da La Rinascente, com vista direta para o Duomo di Milano — uma das mesas com vista mais espetaculares da Itália. O restaurante serve culinária italiana contemporânea em um ambiente moderno e elegante.\n\nÉ um dos endereços mais desejados de Milão para jantar com vista, combinando gastronomia de alto nível com uma localização verdadeiramente ímpar.",
+    tips:[
+      "Política de cancelamento: 24h de antecedência para evitar multa de €25/pessoa",
+      "Solicite mesa próxima à janela ao reservar",
+      "Entrada pela La Rinascente, 7º andar — acesso pelo elevador interno"
+    ],
+    ig:"https://www.instagram.com/maiorestaurant_milano/",
+    maps:"https://maps.google.com/?q=Maio+Milano+La+Rinascente"
+  },
+  duomo_firenze:{
+    category:"Patrimônio Histórico · Florença",
+    title:"Cattedrale di Santa Maria del Fiore",
+    img:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Florence_Cathedral_-_October_2018.jpg/800px-Florence_Cathedral_-_October_2018.jpg",
+    desc:"A Catedral de Florença, conhecida simplesmente como 'Il Duomo', é o símbolo eterno da cidade e uma das obras-primas da arquitetura renascentista. Sua cúpula, projetada por Filippo Brunelleschi entre 1420 e 1436, foi a maior cúpula de alvenaria construída até então — e permanece como a maior do mundo até hoje.\n\nO exterior de mármore policromado em branco, verde e rosa (de Carrara, Prato e Maremma respectivamente) é de uma beleza hipnótica. O campanário de Giotto, ao lado, oferece uma vista diferente e igualmente espetacular da cúpula.",
+    tips:[
+      "Ingresso inclui acesso à cúpula (463 degraus), campanário, museu e batistério",
+      "Chegar 10 min antes do horário marcado — entrada pela porta indicada no ingresso",
+      "Passaporte obrigatório para apresentação na entrada",
+      "Roupas sem decote/ombros descobertos — xales disponíveis na entrada",
+      "Sem mochilas grandes — deixe no hotel ou use guarda-volumes"
+    ],
+    website:"https://www.museumflorence.com/",
+    maps:"https://maps.google.com/?q=Cattedrale+di+Santa+Maria+del+Fiore+Firenze"
+  },
+  uffizi:{
+    category:"Museu de Arte · Florença",
+    title:"Galleria degli Uffizi",
+    img:"https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/Galleria_degli_Uffizi_%2838944960364%29.jpg/800px-Galleria_degli_Uffizi_%2838944960364%29.jpg",
+    desc:"Fundada pelos Médici em 1581, a Galleria degli Uffizi é um dos museus de arte mais importantes do mundo e o coração artístico de Florença. Seu acervo de mais de 3.000 obras inclui as maiores pinturas do Renascimento italiano, reunidas em 90 salas ao longo de um palácio desenhado por Vasari.\n\nDestaques imperdíveis: 'O Nascimento de Vênus' e 'Primavera' de Botticelli, a 'Anunciação' de Leonardo da Vinci, a 'Madonna do Cardellino' de Raphael e a 'Sagrada Família' de Michelangelo. Uma visita completa requer pelo menos 3 horas.",
+    tips:[
+      "Portão nº 1 — chegue 15 min antes do horário marcado no ingresso",
+      "Passaporte obrigatório para apresentação na entrada",
+      "Fotografia permitida (sem flash) em quase todas as salas",
+      "A sala de Botticelli (sala 10-14) fica lotada — vá para ela primeiro",
+      "Loja do museu excelente para reproduções e livros de arte"
+    ],
+    website:"https://www.uffizi.it/",
+    maps:"https://maps.google.com/?q=Galleria+degli+Uffizi+Firenze",
+    ig:"https://www.instagram.com/uffizigalleries/"
+  },
+  ponte_vecchio:{
+    category:"Patrimônio Histórico · Florença",
+    title:"Ponte Vecchio & Piazza della Signoria",
+    img:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Firenze_-_Ponte_Vecchio.jpg/800px-Firenze_-_Ponte_Vecchio.jpg",
+    desc:"A Ponte Vecchio é a mais antiga e icônica ponte de Florença, construída em 1345 e único sobrevivente das destruições da Segunda Guerra Mundial ao longo do Arno. Suas joalherias e ourivesarias nas laterais são um espetáculo à parte — foram instaladas por ordem dos Médici no século XVI, que achavam os antigos açougues mal-cheirosos demais para uma ponte tão elegante.\n\nA Piazza della Signoria, a apenas 5 minutos a pé, é o coração político de Florença há séculos. O Palazzo Vecchio, a fonte de Neptuno e as estátuas ao redor criam uma cenografia única — com a cópia do 'Davi' de Michelangelo marcando presença imponente.",
+    tips:[
+      "Melhor foto da Ponte Vecchio: da Ponte Santa Trinita ou às 6h da manhã, antes dos turistas",
+      "As joias são caras — apreciar as vitrines já é uma experiência",
+      "Piazza della Signoria: museu ao ar livre com estátuas renascentistas originais"
+    ],
+    maps:"https://maps.google.com/?q=Ponte+Vecchio+Firenze"
+  },
+  piazzale_michelangelo:{
+    category:"Mirante · Florença",
+    title:"Piazzale Michelangelo",
+    img:"https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/Florence_from_Piazzale_Michelangelo.jpg/800px-Florence_from_Piazzale_Michelangelo.jpg",
+    desc:"O Piazzale Michelangelo é o ponto de vista mais famoso de Florença, oferecendo uma panorâmica perfeita e abrangente de toda a cidade com o Arno, o Duomo, o campanário de Giotto e as colinas ao fundo. É o lugar onde Florença revela toda a sua beleza de uma só vez.\n\nO melhor momento é ao pôr do sol, quando a luz dourada banha os telhados de terracota e o Duomo ganha uma cor quase irreal. A praça tem uma réplica do 'Davi' de Michelangelo no centro.",
+    tips:[
+      "Recomendado de táxi — a subida a pé é de uns 20 min por escadarias",
+      "Chegue 30–45 min antes do pôr do sol para garantir boa posição",
+      "O bar da praça serve aperitivo com a vista — experiência completa",
+      "À noite, a vista iluminada de Florença também é espetacular"
+    ],
+    maps:"https://maps.google.com/?q=Piazzale+Michelangelo+Firenze"
+  },
+  cosimo_rooftop:{
+    category:"Restaurante · Florença",
+    title:"Cosimo Rooftop Restaurant",
+    img:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Florence_Cathedral_-_October_2018.jpg/800px-Florence_Cathedral_-_October_2018.jpg",
+    desc:"O Cosimo Rooftop Restaurant oferece jantar com vista privilegiada para Florença ao entardecer — uma das experiências gastronômicas mais memoráveis da cidade. Localizado em rooftop com vista para os telhados e o Duomo, o restaurante serve culinária toscana contemporânea com ingredientes sazonais locais.",
+    tips:[
+      "Política de cancelamento: menos de 24h → €100 por pessoa",
+      "Reserve mesa na área externa para aproveitar o pôr do sol",
+      "Dress code smart-casual / elegante"
+    ],
+    ig:"https://www.instagram.com/cosimorestaurant/",
+    maps:"https://maps.google.com/?q=Cosimo+Rooftop+Restaurant+Firenze"
+  },
+  il_latini:{
+    category:"Restaurante · Florença",
+    title:"IL LATINI",
+    img:"https://upload.wikimedia.org/wikipedia/commons/thumb/2/2f/Firenze_-_Ponte_Vecchio.jpg/800px-Firenze_-_Ponte_Vecchio.jpg",
+    desc:"O IL LATINI é uma das trattorias mais autênticas e históricas de Florença, funcionando desde 1950 na Via dei Palchetti. O ambiente é barulhento, alegre e completamente toscano: longas mesas compartilhadas, fiaschi de vinho pendurados no teto e pratos fartos saídos diretamente da cozinha.\n\nEspecialidades da casa: ribollita (sopa toscana), pappardelle al cinghiale (javali), bistecca alla Fiorentina e panna cotta. Uma experiência gastronômica autêntica, sem filtro e absolutamente memorável.",
+    tips:[
+      "O jantar começa às 19h30 — pontualidade importante pois o espaço é disputado",
+      "Não se espantem com as mesas compartilhadas — faz parte do charme!",
+      "Menu fixo à la casa — perfeito para quem quer comer muito e bem"
+    ],
+    ig:"https://www.instagram.com/il_latini_firenze/",
+    maps:"https://maps.google.com/?q=Il+Latini+Firenze+Via+dei+Palchetti"
+  },
+  trevi:{
+    category:"Monumento Histórico · Roma",
+    title:"Fontana di Trevi",
+    img:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Trevi_Fountain%2C_Rome%2C_Italy_2_-_May_2007.jpg/800px-Trevi_Fountain%2C_Rome%2C_Italy_2_-_May_2007.jpg",
+    desc:"A Fontana di Trevi é a maior e mais famosa fonte do mundo barroco — e um dos monumentos mais reconhecíveis do planeta. Projetada por Nicola Salvi em 1762, ela marca o ponto final do Aqueduto Virgem, uma das fontes de água que abastecia Roma há mais de 2.000 anos.\n\nA tradição manda jogar uma moeda com a mão direita por sobre o ombro esquerdo: uma moeda garante o retorno a Roma, duas moedas um novo romance, três moedas um casamento. Mais de €3.000 em moedas são recolhidas diariamente e doadas a uma instituição de caridade.",
+    tips:[
+      "Chegue muito cedo (6h–7h) para vê-la quase vazia e bem iluminada",
+      "À noite, a iluminação artificial cria uma atmosfera completamente diferente e mágica",
+      "Proibido entrar na fonte — multas altíssimas",
+      "Os gelaterias ao redor: evite as touristeiras, vá um pouco mais além nas ruelas"
+    ],
+    maps:"https://maps.google.com/?q=Fontana+di+Trevi+Roma"
+  },
+  vaticano:{
+    category:"Museu & Patrimônio · Roma",
+    title:"Museus Vaticanos & Capela Sistina",
+    img:"https://upload.wikimedia.org/wikipedia/commons/thumb/b/b9/Above_the_Apostolic_Palace.jpg/800px-Above_the_Apostolic_Palace.jpg",
+    desc:"O complexo dos Museus Vaticanos é o maior do mundo, com 54 galerias interligadas e mais de 20.000 obras de arte — resultado de séculos de colecionismo papal. O percurso padrão passa pela Galeria dos Candelabros, a Galeria dos Tapeçarias, a Galeria dos Mapas e as magistas Stanze di Raffaello antes de chegar ao ápice: a Capela Sistina.\n\nO teto da Sistina, pintado por Michelangelo entre 1508 e 1512 a pedido do Papa Júlio II, é considerada a maior obra de arte da história. Os mais de 300 personagens do Gênesis, com destaque para 'A Criação de Adão', são de uma potência visual inigualável.",
+    tips:[
+      "Chegue 10 min antes — fila de entrada existe mesmo com ingresso reservado",
+      "Passaporte obrigatório para entrada",
+      "Vestuário: ombros e joelhos cobertos (obrigatório para entrar na Sistina)",
+      "Guardar-chapelaria disponível — sem mochilas grandes na Sistina",
+      "Ingressos não reembolsáveis — proteja com seguro viagem"
+    ],
+    website:"https://www.museivaticani.va/",
+    maps:"https://maps.google.com/?q=Musei+Vaticani+Roma",
+    ig:"https://www.instagram.com/museivaticani/"
+  },
+  coliseu:{
+    category:"Patrimônio Histórico · Roma",
+    title:"Coliseu · Forum Romano · Monte Palatino",
+    img:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Colosseo_2020.jpg/800px-Colosseo_2020.jpg",
+    desc:"O Coliseu (Anfiteatro Flávio) é o maior anfiteatro já construído — inaugurado em 80 d.C., tinha capacidade para até 80.000 espectadores que assistiam a combates de gladiadores, caçadas e espetáculos navais. Sua construção durou apenas 10 anos e até hoje é considerada uma das maiores façanhas da engenharia antiga.\n\nO Forum Romano, ao lado, foi o centro da vida política, comercial e religiosa da Roma Antiga por mais de 900 anos. Passeando pelo Forum, pisamos nos mesmos travertinos onde Júlio César andava. O Monte Palatino, de onde os imperadores governavam o mundo, completa um dia absolutamente épico.",
+    tips:[
+      "Bilhete válido por 2 dias consecutivos — aproveite bem!",
+      "Chegar 10 min antes — entrada com grupo pelo portão indicado",
+      "O acesso com Arena é mais imersivo — veja o 'chão' onde os gladiadores lutavam",
+      "Recomendado visitar Forum Romano e Palatino após o almoço no Aroma",
+      "Ingressos não reembolsáveis — não perca o horário!"
+    ],
+    website:"https://www.colosseo.it/",
+    maps:"https://maps.google.com/?q=Colosseo+Roma",
+    ig:"https://www.instagram.com/parcocolosseo/"
+  },
+  pierluigi:{
+    category:"Restaurante · Roma",
+    title:"Ristorante Pierluigi",
+    img:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Trevi_Fountain%2C_Rome%2C_Italy_2_-_May_2007.jpg/800px-Trevi_Fountain%2C_Rome%2C_Italy_2_-_May_2007.jpg",
+    desc:"O Pierluigi é um dos restaurantes mais elegantes e amados de Roma, funcionando desde 1938 na encantadora Piazza de Ricci, a poucos passos do Campo de' Fiori. Especializado em frutos do mar e culinária mediterrânea, é frequentado por personalidades do mundo das artes, política e moda.\n\nAs mesas ao ar livre na praça criam uma cena romântica e tipicamente romana. O menu muda conforme a sazonalidade, sempre priorizando o melhor do mar italiano.",
+    tips:[
+      "Política: não comparecimento → €50 por pessoa. Cancelamento até 24h antes sem penalidade.",
+      "Peça o branzino al sale ou a vitella cruda para começar",
+      "Mesa na praça → chegue no horário para garantir — as melhores ficam expostas"
+    ],
+    ig:"https://www.instagram.com/pierluigiroma/",
+    maps:"https://maps.google.com/?q=Ristorante+Pierluigi+Roma"
+  },
+  aroma:{
+    category:"Restaurante · Roma",
+    title:"Aroma Ristorante",
+    img:"https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/Colosseo_2020.jpg/800px-Colosseo_2020.jpg",
+    desc:"O Aroma é possivelmente o restaurante com a vista mais espetacular de Roma — situado no terraço do Hotel Palazzo Manfredi, diretamente em frente ao Coliseu. O restaurante ostenta uma estrela Michelin e serve culinária italiana contemporânea de altíssimo nível.\n\nAlmoçar no Aroma depois de visitar o Coliseu é uma das experiências mais memoráveis que Roma pode oferecer: olhar para um dos maiores monumentos da história enquanto saboreiam pratos excepcionais com vinho italiano.",
+    tips:[
+      "Menu mínimo de €170 por pessoa — programe o orçamento",
+      "A vista para o Coliseu é simplesmente impossível de superar em Roma",
+      "Dress code: elegante/formal",
+      "Reserve com meses de antecedência para garantir mesa na varanda"
+    ],
+    ig:"https://www.instagram.com/aroma_restaurant/",
+    maps:"https://maps.google.com/?q=Aroma+Restaurant+Palazzo+Manfredi+Roma"
+  },
+  assunta_madre:{
+    category:"Restaurante · Roma",
+    title:"Assunta Madre",
+    img:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Trevi_Fountain%2C_Rome%2C_Italy_2_-_May_2007.jpg/800px-Trevi_Fountain%2C_Rome%2C_Italy_2_-_May_2007.jpg",
+    desc:"O Assunta Madre é um dos restaurantes de frutos do mar mais respeitados de Roma, referência para quem quer comer o melhor peixe da cidade em ambiente requintado. Fundado na tradição culinária do litoral italiano, o menu privilegia ingredientes frescos do dia, com preparações simples que valorizam a qualidade excepcional do produto.\n\nUma escolha perfeita para o jantar de despedida de Roma — elegante, memorável e profundamente italiano.",
+    tips:[
+      "Política: €168 por cancelamento/não comparecimento com menos de 24h",
+      "Peça o que chegar fresco no dia — o maître explica com prazer",
+      "Seleção de vinhos brancos italianos excelente"
+    ],
+    ig:"https://www.instagram.com/assunta_madre_official/",
+    maps:"https://maps.google.com/?q=Assunta+Madre+Roma"
+  },
+  singer_palace:{
+    category:"Hotel · Roma",
+    title:"Singer Palace Hotel",
+    img:"https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Trevi_Fountain%2C_Rome%2C_Italy_2_-_May_2007.jpg/800px-Trevi_Fountain%2C_Rome%2C_Italy_2_-_May_2007.jpg",
+    desc:"O Singer Palace Hotel é um cinco estrelas de luxo localizado no centro histórico de Roma, numa das localizações mais privilegiadas da cidade — a poucos passos do Pantheon, da Piazza Navona e do Campo de' Fiori. O edifício histórico, elegantemente restaurado, oferece quartos de design sofisticado e o Rossini's Restaurant no rooftop, com vista para os telhados de Roma.\n\nDistingido com a Michelin Key, o Singer Palace é uma das hospedagens mais exclusivas da cidade eterna.",
+    tips:[
+      "Taxa de cidade de aprox. €80 e caução de aprox. €100 cobrados no check-in",
+      "O restaurante do rooftop (Rossini's) tem vista para os telhados de Roma — reserve",
+      "Localização central — vários pontos turísticos a pé"
+    ],
+    ig:"https://www.instagram.com/singerpalacehotel/",
+    maps:"https://maps.google.com/?q=Singer+Palace+Hotel+Roma"
+  },
+  the_square_milano:{
+    category:"Hotel · Milão",
+    title:"The Square Milano Duomo",
+    img:"https://upload.wikimedia.org/wikipedia/commons/thumb/f/f7/Cathedral_of_Milan_from_Piazza_del_Duomo.jpg/800px-Cathedral_of_Milan_from_Piazza_del_Duomo.jpg",
+    desc:"O The Square Milano Duomo é um hotel boutique de design localizado a 30 segundos a pé da Piazza del Duomo — uma das localizações mais invejáveis de Milão. Com design contemporâneo e quartos cuidadosamente decorados, o hotel é base perfeita para explorar a cidade a pé.\n\nO The Roof, no terraço, serve o jantar com vista panorâmica para o Duomo — um privilégio exclusivo dos hóspedes.",
+    tips:[
+      "Taxa municipal de aprox. €40 e caução de aprox. €100 cobrados no check-in",
+      "Do quarto, peça vista para a Piazza del Duomo se disponível",
+      "Toda Milão ao alcance a pé — Galleria, Brera, Quadrilátero, tudo próximo"
+    ],
+    ig:"https://www.instagram.com/thesquaremilanhotel/",
+    maps:"https://maps.google.com/?q=The+Square+Milano+Duomo"
+  },
+  l_orologio:{
+    category:"Hotel · Florença",
+    title:"Hotel L'Orologio Firenze",
+    img:"https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Florence_Cathedral_-_October_2018.jpg/800px-Florence_Cathedral_-_October_2018.jpg",
+    desc:"O L'Orologio Firenze é um hotel boutique de luxo com temática de relógios históricos — cada quarto apresenta peças únicas de relojoaria antiga. Localizado na Piazza Santa Maria Novella, está a 10 minutos a pé do Duomo e a poucos passos da estação de trem.\n\nA piscina aquecida e a academia funcionam 24h — ótimo para relaxar após um dia intenso de visitas. O SPA, o bar e o restaurante completam uma experiência memorável em Florença.",
+    tips:[
+      "Taxa de cidade de aprox. €30 cobrada no check-in",
+      "Academia e sauna disponíveis 24h — aproveite após as visitas",
+      "Localização na Piazza SMN — bela para uma caminhada noturna"
+    ],
+    maps:"https://maps.google.com/?q=Hotel+L'Orologio+Firenze+Piazza+Santa+Maria+Novella"
+  }
+};
+
+/* ── TIPOS ── */
+var TIPOS = {
+  flight:   {bg:"#eef2fb",dot:"#264273",label:"VOO",        icon:"flight"},
+  transfer: {bg:"#f3eefb",dot:"#6b3db5",label:"TRANSFER",   icon:"directions_car"},
+  hotel:    {bg:"#eaf7f2",dot:"#0e7a5f",label:"HOTEL",       icon:"hotel"},
+  activity: {bg:"#fdf8ee",dot:"#b8952a",label:"ATIVIDADE",   icon:"explore"},
+  food:     {bg:"#fef1f1",dot:"#c0392b",label:"RESTAURANTE", icon:"restaurant"},
+  train:    {bg:"#eef7fc",dot:"#0284c7",label:"TREM",        icon:"train"}
+};
+
+var EMERGENCY = {
+  milan:{phone:"+39 392 1570017",city:"Milão"},
+  rome: {phone:"+39 349 0640606",city:"Roma"}
+};
+
+/* ── VIAGEM DATA ── */
+var VIAGEM = {
+  name:"Ana e Wellington",
+  dest:"Milão · Florença · Roma",
+  dates:"28 Mar — 04 Abr 2026",
+  code:"AV-2026-IT01",
+  isDisney:false,
+  start:"2026-03-28",
+  days:[
+    {
+      date:"28 Mar",week:"Sábado",city:"Fortaleza → Milão",color:"#264273",
+      items:[
+        {type:"flight",time:"23:15",title:"Voo FOR → LIS — TAP Air Portugal",
+          sub:"Voo 36 · C7TA8A · Executiva",
+          detail:"Pinto Martins → Portela · 7h10",
+          links:[{name:"Passagens Aéreas",icon:"flight",url:DRIVE.flights,sub:"Pasta de Voos — Google Drive"}]},
+        {type:"flight",time:"13:10",title:"Conexão LIS → MXP — TAP",
+          sub:"Voo 826 · C7TA8A · Executiva",
+          detail:"Espera 3h45 em Lisboa · 2h45 · Chegada 16:55",
+          links:[{name:"Passagens Aéreas",icon:"flight",url:DRIVE.flights,sub:"Pasta de Voos — Google Drive"}]},
+        {type:"transfer",time:"17:30",title:"Transfer — Malpensa → Hotel",
+          sub:"Motorista segue o horário do voo · atrasos não são problema",
+          detail:"Motorista aguarda no desembarque com plaquinha: ANA LÍCIA",
+          emergency:"milan",
+          links:[]},
+        {type:"hotel",time:"19:00",title:"Check-in — The Square Milano Duomo",
+          sub:"Via Alberico Albricci, 2–4",
+          detail:"Quarto Duplo Exclusivo · Taxa municipal aprox. €40 · Caução aprox. €100",
+          infoKey:"the_square_milano",
+          links:[{name:"Voucher Hotel",icon:"hotel",url:DRIVE.hotels,sub:"Pasta de Hotéis — Google Drive"}]},
+        {type:"food",time:"19:30",title:"Jantar — The Roof Milano",
+          sub:"Terraço do hotel · Vista panorâmica para o Duomo",
+          detail:"Culinária italiana e mediterrânea",
+          ig:"https://www.instagram.com/theroofmilano/",
+          infoKey:"the_roof",
+          links:[]}
+      ],
+      docs:[]
+    },
+    {
+      date:"29 Mar",week:"Domingo",city:"Milão",color:"#264273",
+      items:[
+        {type:"activity",time:"09:00",title:"Café da manhã no hotel",sub:"",detail:"",links:[]},
+        {type:"activity",time:"10:00",title:"Duomo di Milano",
+          sub:"Visita externa · terraço opcional",
+          detail:"Uma das catedrais góticas mais espetaculares do mundo",
+          infoKey:"duomo_milano",
+          links:[]},
+        {type:"activity",time:"11:00",title:"Galleria Vittorio Emanuele II",
+          sub:"A elegante galeria coberta de ferro e vidro (1877)",
+          detail:"O 'salotto' de Milão · gire o calcanhar no mosaico do touro para dar sorte!",
+          infoKey:"galleria_ve",
+          links:[]},
+        {type:"activity",time:"11:30",title:"Quadrilátero da Moda",
+          sub:"Via Montenapoleone & Via della Spiga",
+          detail:"Lojas emblemáticas e vitrines sofisticadas das maiores grifes do mundo",
+          infoKey:"quadrilatero",
+          links:[]},
+        {type:"food",time:"13:00",title:"Almoço — 10|11 Portrait",
+          sub:"Via Sant'Andrea, 10 · WhatsApp +39 345 7279634",
+          ig:"https://www.instagram.com/10_11milano/",
+          infoKey:"portrait_10_11",
+          links:[{name:"Confirmação Restaurante",icon:"restaurant",url:DRIVE.restaurants,sub:"Pasta de Restaurantes — Google Drive"}]},
+        {type:"activity",time:"16:00",title:"Bairro de Brera",
+          sub:"Boutiques, galerias e cafés",
+          detail:"Aperitivo ao anoitecer",
+          infoKey:"brera",
+          links:[]},
+        {type:"food",time:"19:00",title:"Jantar — Restaurante Maio",
+          sub:"Piazza Del Duomo · La Rinascente 7º Piso",
+          ig:"https://www.instagram.com/maiorestaurant_milano/",
+          penalty:"Em caso de não comparecimento ou cancelamento com menos de 24h de antecedência, será cobrada uma taxa de €25 por pessoa no cartão fornecido para reserva.",
+          infoKey:"maio_restaurante",
+          links:[{name:"Confirmação Restaurante",icon:"restaurant",url:DRIVE.restaurants,sub:"Pasta de Restaurantes — Google Drive"}]}
+      ],
+      docs:[{name:"Voucher Hotel — The Square",icon:"hotel",tag:"VOUCHER",color:"#0e7a5f",url:DRIVE.hotels}]
+    },
+    {
+      date:"30 Mar",week:"Segunda",city:"Milão → Florença",color:"#0e7a5f",
+      items:[
+        {type:"transfer",time:"11:30",title:"Transfer — The Square → Milano Centrale",
+          sub:"Ponto de encontro: na frente do hotel",
+          emergency:"milan",
+          links:[]},
+        {type:"train",time:"12:40",title:"Trem — Italo 9935 · Prima Business",
+          sub:"Milano Centrale → Firenze S.M. Novella",
+          detail:"1h55 · Chegada 14:35 · Wi-Fi e lanches inclusos",
+          links:[{name:"Bilhetes de Trem",icon:"train",url:DRIVE.trains,sub:"Pasta de Trens — Google Drive"}]},
+        {type:"hotel",time:"15:30",title:"Check-in — Hotel L'Orologio Firenze",
+          sub:"Piazza S.M. Novella, 24",
+          detail:"Quarto Duplo Superior · Taxa aprox. €30 · Academia e sauna 24h",
+          infoKey:"l_orologio",
+          links:[{name:"Voucher Hotel",icon:"hotel",url:DRIVE.hotels,sub:"Pasta de Hotéis — Google Drive"}]},
+        {type:"activity",time:"16:30",title:"Caminhada por Florença",
+          sub:"Piazza S.M. Novella → Duomo · aprox. 10 min a pé",
+          detail:"Ruas históricas, cafés e gelaterias",
+          links:[]},
+        {type:"food",time:"19:00",title:"Jantar — Cosimo Rooftop Restaurant",
+          sub:"Pôr do sol · Reserva na área interna",
+          ig:"https://www.instagram.com/cosimorestaurant/",
+          penalty:"Não comparecimento ou cancelamento com menos de 24h: €100 por pessoa no cartão fornecido.",
+          infoKey:"cosimo_rooftop",
+          links:[{name:"Confirmação Restaurante",icon:"restaurant",url:DRIVE.restaurants,sub:"Pasta de Restaurantes — Google Drive"}]}
+      ],
+      docs:[]
+    },
+    {
+      date:"31 Mar",week:"Terça",city:"Florença",color:"#0e7a5f",
+      items:[
+        {type:"activity",time:"10:30",title:"Cattedrale di Santa Maria del Fiore",
+          sub:"Chegar 10 min antes · Passaporte obrigatório",
+          detail:"Cúpula: 463 degraus · Campanário: 414 degraus · Sem mochilas na entrada",
+          ingresso:true,
+          infoKey:"duomo_firenze",
+          links:[{name:"Ingressos Duomo",icon:"confirmation_number",url:DRIVE.ingressos,sub:"Pasta de Ingressos — Google Drive"}]},
+        {type:"activity",time:"15:00",title:"Galleria degli Uffizi",
+          sub:"Portão nº 1 · 15 min antes · Passaporte obrigatório",
+          detail:"Uma das maiores coleções de arte do mundo — Botticelli, Leonardo, Michelangelo",
+          ingresso:true,
+          infoKey:"uffizi",
+          links:[{name:"Ingressos Uffizi",icon:"confirmation_number",url:DRIVE.ingressos,sub:"Pasta de Ingressos — Google Drive"}]},
+        {type:"activity",time:"16:30",title:"Ponte Vecchio & Piazza della Signoria",
+          sub:"Joalherias históricas · Palazzo Vecchio externo",
+          infoKey:"ponte_vecchio",
+          links:[]},
+        {type:"activity",time:"18:30",title:"Piazzale Michelangelo — Pôr do sol",
+          sub:"Vista mais famosa de Florença · Taxi recomendado",
+          infoKey:"piazzale_michelangelo",
+          links:[]},
+        {type:"food",time:"19:30",title:"Jantar — IL LATINI",
+          sub:"Via dei Palchetti · Trattoria histórica desde 1950",
+          ingresso:true,
+          ig:"https://www.instagram.com/il_latini_firenze/",
+          infoKey:"il_latini",
+          links:[{name:"Confirmação Restaurante",icon:"restaurant",url:DRIVE.restaurants,sub:"Pasta de Restaurantes — Google Drive"}]}
+      ],
+      docs:[]
+    },
+    {
+      date:"01 Abr",week:"Quarta",city:"Florença → Roma",color:"#c0392b",
+      items:[
+        {type:"train",time:"12:28",title:"Trem — Italo 8902 · Prima Business",
+          sub:"Firenze S.M. Novella → Roma Termini",
+          detail:"1h37 · Chegada 14:05",
+          links:[{name:"Bilhetes de Trem",icon:"train",url:DRIVE.trains,sub:"Pasta de Trens — Google Drive"}]},
+        {type:"transfer",time:"12:28",title:"Transfer — Roma Termini → Singer Palace",
+          sub:"Motorista segue o horário do trem · atrasos não são problema",
+          detail:"Motorista na saída próximo à Farmácia, plataforma nº 1",
+          emergency:"rome",
+          links:[]},
+        {type:"hotel",time:"15:00",title:"Check-in — Singer Palace Hotel Roma",
+          sub:"Via Alessandro Specchi, 10",
+          detail:"Michelin Key · 5 estrelas · Taxa aprox. €80 · Caução aprox. €100",
+          infoKey:"singer_palace",
+          links:[{name:"Voucher Hotel",icon:"hotel",url:DRIVE.hotels,sub:"Pasta de Hotéis — Google Drive"}]},
+        {type:"food",time:"19:30",title:"Jantar — Restaurante Singer Palace",
+          sub:"Cobertura do hotel · Tolerância de 20 minutos",
+          ig:"https://www.instagram.com/singerpalacehotel/",
+          links:[{name:"Confirmação Restaurante",icon:"restaurant",url:DRIVE.restaurants,sub:"Pasta de Restaurantes — Google Drive"}]}
+      ],
+      docs:[]
+    },
+    {
+      date:"02 Abr",week:"Quinta",city:"Roma",color:"#c0392b",
+      items:[
+        {type:"activity",time:"09:30",title:"Fontana di Trevi & Via del Corso",
+          sub:"Vá cedo para menos movimento",
+          detail:"Manhã leve para poupar energia para o Vaticano",
+          infoKey:"trevi",
+          links:[]},
+        {type:"food",time:"12:00",title:"Almoço — Pierluigi",
+          sub:"Piazza de Ricci, 144 · Frutos do mar · Reserva essencial",
+          ig:"https://www.instagram.com/pierluigiroma/?hl=pt",
+          penalty:"Não comparecimento → €50 por pessoa. Cancelamento até 24h antes sem penalidade.",
+          infoKey:"pierluigi",
+          links:[{name:"Confirmação Restaurante",icon:"restaurant",url:DRIVE.restaurants,sub:"Pasta de Restaurantes — Google Drive"}]},
+        {type:"activity",time:"15:30",title:"Museus Vaticanos & Capela Sistina",
+          sub:"Chegar 10 min antes · Passaporte · Viale Vaticano s/n",
+          detail:"Duração aproximada 3h · Ingressos não reembolsáveis",
+          ingresso:true,
+          infoKey:"vaticano",
+          links:[{name:"Ingressos Vaticanos",icon:"confirmation_number",url:DRIVE.ingressos,sub:"Pasta de Ingressos — Google Drive"}]}
+      ],
+      docs:[]
+    },
+    {
+      date:"03 Abr",week:"Sexta",city:"Roma",color:"#c0392b",
+      items:[
+        {type:"activity",time:"09:30",title:"Coliseu · Forum Romano · Monte Palatino",
+          sub:"Chegar 10 min antes · Passaporte · Sperone Valadier",
+          detail:"Duração aprox. 4h · Bilhete válido 2 dias · Não reembolsável",
+          ingresso:true,
+          infoKey:"coliseu",
+          links:[{name:"Ingressos Coliseu & Forum",icon:"confirmation_number",url:DRIVE.ingressos,sub:"Pasta de Ingressos — Google Drive"}]},
+        {type:"food",time:"13:00",title:"Almoço — Aroma Ristorante",
+          sub:"Frente ao Coliseu · Terraço do Palazzo Manfredi · 1 estrela Michelin",
+          detail:"Recomendo fazer o Forum Romano e Palatino após o almoço",
+          ig:"https://www.instagram.com/aroma_restaurant/",
+          infoKey:"aroma",
+          links:[{name:"Confirmação Restaurante",icon:"restaurant",url:DRIVE.restaurants,sub:"Pasta de Restaurantes — Google Drive"}]},
+        {type:"food",time:"19:30",title:"Jantar de Despedida — Assunta Madre",
+          sub:"Via Guido Reni, 4 · Frutos do mar",
+          penalty:"Taxa de €168 por não comparecimento ou cancelamento com menos de 24h da reserva.",
+          ig:"https://www.instagram.com/assunta_madre_official/",
+          altOption:{name:"Nino Ristorante — 19:30",ig:"https://www.instagram.com/ninodal1934?igsh=MW81c2FkMnR1NXg3NQ=="},
+          infoKey:"assunta_madre",
+          links:[{name:"Confirmação Restaurante",icon:"restaurant",url:DRIVE.restaurants,sub:"Pasta de Restaurantes — Google Drive"}]}
+      ],
+      docs:[]
+    },
+    {
+      date:"04 Abr",week:"Sábado",city:"Roma → Fortaleza",color:"#264273",
+      items:[
+        {type:"activity",time:"08:00",title:"Check-out — Singer Palace Hotel",sub:"",detail:"",links:[]},
+        {type:"transfer",time:"09:30",title:"Transfer — Singer Palace → Fiumicino T1",
+          sub:"Ponto de encontro: na frente do hotel",
+          emergency:"rome",
+          links:[]},
+        {type:"flight",time:"13:35",title:"Voo FCO → LIS — TAP Air Portugal",
+          sub:"Voo 833 · C7TA8A · Executiva",
+          detail:"3h10 · Chegada Lisboa 15:45",
+          links:[{name:"Passagens Aéreas",icon:"flight",url:DRIVE.flights,sub:"Pasta de Voos — Google Drive"}]},
+        {type:"flight",time:"17:40",title:"Conexão LIS → FOR — TAP",
+          sub:"Voo 35 · C7TA8A · Executiva",
+          detail:"Espera 1h55 · 7h40 · Chegada Fortaleza 21:20",
+          links:[{name:"Passagens Aéreas",icon:"flight",url:DRIVE.flights,sub:"Pasta de Voos — Google Drive"}]}
+      ],
+      docs:[]
+    }
+  ],
+  commonDocs:[
+    {name:"Seguro Viagem",             icon:"verified_user",   tag:"SEGURO",    color:"#6b3db5",url:DRIVE.insurance},
+    {name:"Passagens Aéreas",          icon:"flight",          tag:"VOOS",      color:"#264273",url:DRIVE.flights},
+    {name:"Bilhetes de Trem — Italo",  icon:"train",           tag:"TRENS",     color:"#0284c7",url:DRIVE.trains},
+    {name:"Vouchers de Hotéis",        icon:"hotel",           tag:"HOTÉIS",    color:"#0e7a5f",url:DRIVE.hotels},
+    {name:"Ingressos",                 icon:"confirmation_number",tag:"INGRESSOS",color:"#b8952a",url:DRIVE.ingressos},
+    {name:"Reservas de Restaurantes",  icon:"restaurant",      tag:"RESTAURANTES",color:"#c0392b",url:DRIVE.restaurants}
+  ]
+};
+
+var GUIAS = {
+  international:{
+    title:"Guia da Viagem Internacional",icon:"public",color:"#264273",
+    sub:"POR GABRIELLE — FUNDADORA AEROVOO",
+    sections:[
+      {h:"Em Casa",icon:"home",tips:["Passaporte com validade mínima de 6 meses.","Confirme vacinas no site da Anvisa.","Contrate seguro viagem e guarde a apólice.","Instale os apps: Google Translate, Maps, Uber."]},
+      {h:"Dicas Práticas",icon:"tips_and_updates",tips:["Moeda: use Wise, Nomad ou C6/Inter para câmbio mais barato.","Leve reservas de hotéis impressas também.","Powerbank e carregador universal são essenciais."]},
+      {h:"Checklist Mala",icon:"luggage",tips:["Passaporte e Seguro com apólice salva","Roupas adequadas ao clima e medicamentos pessoais","Eletrônicos com carregadores e adaptador universal","Itens essenciais na bagagem de mão em caso de extravio"]},
+      {h:"Problemas no Aeroporto",icon:"warning_amber",tips:["Mala extraviada: abra PIR no balcão ANTES de sair da área de bagagens.","Voo cancelado: vá imediatamente ao balcão da companhia.","Nunca resolva depois de sair do aeroporto — compromete seus direitos.","Acione a AeroVoo via WhatsApp para orientação."]},
+      {h:"Emergências na Itália",icon:"emergency",tips:["Emergência geral: 112 (funciona em toda a Europa)","Polícia: 113 · Bombeiros: 115 · Ambulância: 118","Embaixada do Brasil em Roma: +39 06 44 19 82 00","Plantão consular emergências: +39 338 274 5400","Seguro Viagem: +55 11 5039-9001 (24h)"]}
+    ]
+  }
+};
+
+var adIdx = 0;
+
+function todayIdx(){
+  var t=new Date(),s=new Date(VIAGEM.start);
+  var d=Math.floor((t-s)/86400000);
+  if(d>=0&&d<VIAGEM.days.length)return d;
+  return d<0?0:VIAGEM.days.length-1;
+}
+
+function init(){
+  document.getElementById('hname').textContent=VIAGEM.name;
+  document.getElementById('hdest').textContent=VIAGEM.dest;
+  document.getElementById('hdates').textContent=VIAGEM.dates;
+  document.getElementById('hcode').textContent=VIAGEM.code;
+  document.getElementById('ccode').textContent=VIAGEM.code;
+  adIdx=todayIdx();
+  buildDayNav();buildDayPanels();buildDocNav();buildDocPanels();
+  setTimeout(function(){
+    var p=document.getElementById('p'+adIdx);
+    if(p)p.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+  },150);
+}
+
+function buildDayNav(){
+  var ti=todayIdx(),h='';
+  for(var i=0;i<VIAGEM.days.length;i++){
+    var d=VIAGEM.days[i];
+    var cls='pill'+(i===adIdx?' on':'')+(i===ti?' today':'');
+    var parts=d.date.split(' ');
+    h+='<div id="p'+i+'" class="'+cls+'" style="--c:'+d.color+'" onclick="selDay('+i+')">';
+    h+='<div class="pill-n">'+parts[0]+'</div>';
+    h+='<div class="pill-m">'+parts[1]+'</div>';
+    h+='<div class="pill-dot"></div></div>';
+  }
+  document.getElementById('daynav').innerHTML=h;
+}
+
+function buildDayPanels(){
+  var ti=todayIdx(),h='';
+  for(var di=0;di<VIAGEM.days.length;di++){
+    var day=VIAGEM.days[di],isToday=di===ti,itemsH='';
+    for(var ii=0;ii<day.items.length;ii++){
+      var item=day.items[ii],s=TIPOS[item.type]||TIPOS.activity;
+      var isLast=ii===day.items.length-1;
+      // links
+      var lH='';
+      if(item.links&&item.links.length>0){
+        for(var li=0;li<item.links.length;li++){
+          var l=item.links[li];
+          lH+='<a class="dlink" href="'+l.url+'" target="_blank" rel="noopener">';
+          lH+='<span class="mi" style="color:var(--navy)">'+l.icon+'</span>';
+          lH+='<div><div class="dlname">'+l.name+'</div><div class="dlsub">'+(l.sub||'Abrir no Google Drive')+'</div></div>';
+          lH+='<span class="mi dlarr">open_in_new</span></a>';
+        }
+      } else {
+        lH='<div class="nodoc"><span class="mi">info_outline</span>&nbsp;Nenhum documento vinculado</div>';
+      }
+      // detail extras
+      var extras='';
+      if(item.ig) extras+=' <a class="ig-link" href="'+item.ig+'" target="_blank" rel="noopener" onclick="event.stopPropagation()"><span class="mi">photo_camera</span>Instagram</a>';
+      if(item.ingresso) extras+=' <span class="ingresso-chip"><span class="mi">confirmation_number</span>INGRESSO</span>';
+      if(item.emergency){var em=EMERGENCY[item.emergency];extras+='<br><a class="emergency-chip" href="tel:'+em.phone.replace(/\s/g,'')+'" onclick="event.stopPropagation()"><span class="mi">phone_in_talk</span>Emergência '+em.city+': '+em.phone+'</a>';}
+      if(item.penalty) extras+='<div class="penalty-note">'+item.penalty+'</div>';
+      if(item.altOption) extras+='<div style="margin-top:5px;font-size:10.5px;color:var(--text-mid)">ou <a href="'+item.altOption.ig+'" target="_blank" rel="noopener" style="color:var(--navy);font-weight:600;" onclick="event.stopPropagation()">'+item.altOption.name+'</a></div>';
+
+      itemsH+='<div class="item">';
+      itemsH+='<div class="tl"><div class="dot" style="--d:'+s.dot+'"></div>'+(!isLast?'<div class="line"></div>':'')+'</div>';
+      itemsH+='<div class="card" id="c'+di+'_'+ii+'" style="background:'+s.bg+';border-color:'+s.dot+'20" onclick="togCard('+di+','+ii+')">';
+      itemsH+='<div class="cmain"><div class="ctop"><div class="cleft">';
+      itemsH+='<div class="cbadge"><span class="mi" style="color:'+s.dot+'">'+s.icon+'</span><span class="cblabel" style="color:'+s.dot+'">'+s.label+'</span></div>';
+      itemsH+='<div class="ctitle">'+item.title+'</div>';
+      if(item.sub) itemsH+='<div class="csub">'+item.sub+'</div>';
+      var detailFull=(item.detail||'')+extras;
+      if(detailFull) itemsH+='<div class="cdetail">'+detailFull+'</div>';
+      itemsH+='</div>';
+      if(item.time) itemsH+='<div class="ctime">'+item.time+'</div>';
+      itemsH+='</div></div>';
+      // info button
+      if(item.infoKey){
+        itemsH+='<div class="cinfo-btn" onclick="event.stopPropagation();openInfo(\''+item.infoKey+'\')">';
+        itemsH+='<span class="mi">info</span>Ver sobre este local</div>';
+      }
+      itemsH+='<div class="cfoot"><span class="cftext">DOCUMENTOS</span><span class="mi">expand_more</span></div>';
+      itemsH+='<div class="clinks">'+lH+'</div>';
+      itemsH+='</div></div>';
+    }
+    h+='<div id="d'+di+'" class="dpanel'+(di===adIdx?' on':'')+'" style="--c:'+day.color+'">';
+    h+='<div class="dhead"><div class="dhead-top">';
+    h+='<span class="dbadge" style="background:'+day.color+'">Dia '+(di+1)+'</span>';
+    h+='<span class="dweek">'+day.week+'</span>';
+    if(isToday) h+='<span class="todaybadge">HOJE</span>';
+    h+='</div><div class="dcity"><span class="mi" style="font-size:13px;color:'+day.color+';opacity:.65">location_on</span>'+day.city+'</div></div>';
+    h+=itemsH+'</div>';
+  }
+  document.getElementById('dpanels').innerHTML=h;
+}
+
+function togCard(di,ii){document.getElementById('c'+di+'_'+ii).classList.toggle('open')}
+
+function selDay(i){
+  adIdx=i;
+  var pills=document.querySelectorAll('.pill');
+  for(var k=0;k<pills.length;k++)pills[k].classList.toggle('on',k===i);
+  var panels=document.querySelectorAll('.dpanel');
+  for(var k=0;k<panels.length;k++)panels[k].classList.toggle('on',k===i);
+  var p=document.getElementById('p'+i);
+  if(p)p.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+}
+
+function buildDocNav(){
+  var h='<div class="doctab on" id="dp-common" onclick="selDoc(\'common\')">Comuns</div>';
+  for(var i=0;i<VIAGEM.days.length;i++){
+    var d=VIAGEM.days[i];
+    if(d.docs&&d.docs.length>0)
+      h+='<div class="doctab" id="dp-'+i+'" onclick="selDoc('+i+')">'+d.date+'</div>';
+  }
+  document.getElementById('docnav').innerHTML=h;
+}
+
+function buildDocPanels(){
+  var gBtns='<button class="gbtn" style="background:linear-gradient(130deg,#1a2d52,#3a5da8);box-shadow:0 4px 16px rgba(38,66,115,.3)" onclick="openGuide(\'international\')">';
+  gBtns+='<span class="mi">public</span><span><span class="gbtitle">Guia da Viagem Internacional</span><span class="gbsub">Documentos, emergências, direitos e dicas</span></span>';
+  gBtns+='<span class="mi gbarr">chevron_right</span></button>';
+  var comDocs='';
+  for(var i=0;i<VIAGEM.commonDocs.length;i++){
+    var d=VIAGEM.commonDocs[i];
+    comDocs+='<a class="dfile" href="'+d.url+'" target="_blank" rel="noopener">';
+    comDocs+='<span class="mi" style="color:'+d.color+'">'+d.icon+'</span>';
+    comDocs+='<div><div class="dfname">'+d.name+'</div><span class="dftag" style="background:'+d.color+'12;border:1px solid '+d.color+'30;color:'+d.color+'">'+d.tag+'</span></div>';
+    comDocs+='<span class="mi dfarr">open_in_new</span></a>';
+  }
+  var h='<div id="dpc-common" class="docpanel on">';
+  h+='<div style="margin-bottom:16px"><div class="slabel"><span class="mi">menu_book</span>GUIAS DE VIAGEM</div>'+gBtns+'</div>';
+  h+='<div class="slabel"><span class="mi">folder_shared</span>TODOS OS DOCUMENTOS</div>'+comDocs+'</div>';
+  for(var i=0;i<VIAGEM.days.length;i++){
+    var day=VIAGEM.days[i];
+    if(!day.docs||day.docs.length===0)continue;
+    h+='<div id="dpc-'+i+'" class="docpanel">';
+    h+='<div class="slabel"><span class="mi">event</span>'+day.date.toUpperCase()+' — '+day.week.toUpperCase()+'</div>';
+    for(var j=0;j<day.docs.length;j++){
+      var d=day.docs[j];
+      h+='<a class="dfile" href="'+d.url+'" target="_blank" rel="noopener">';
+      h+='<span class="mi" style="color:'+d.color+'">'+d.icon+'</span>';
+      h+='<div><div class="dfname">'+d.name+'</div><span class="dftag" style="background:'+d.color+'12;border:1px solid '+d.color+'30;color:'+d.color+'">'+d.tag+'</span></div>';
+      h+='<span class="mi dfarr">open_in_new</span></a>';
+    }
+    h+='</div>';
+  }
+  document.getElementById('docpanels').innerHTML=h;
+}
+
+function selDoc(k){
+  var tabs=document.querySelectorAll('.doctab');
+  for(var i=0;i<tabs.length;i++)tabs[i].classList.remove('on');
+  var p=document.getElementById('dp-'+k);
+  if(p){p.classList.add('on');p.scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});}
+  var panels=document.querySelectorAll('.docpanel');
+  for(var i=0;i<panels.length;i++)panels[i].classList.remove('on');
+  var panel=document.getElementById('dpc-'+k);
+  if(panel)panel.classList.add('on');
+}
+
+function showSec(name,btn){
+  var secs=['roteiro','docs','contato'];
+  for(var i=0;i<secs.length;i++)
+    document.getElementById('s-'+secs[i]).style.display=secs[i]===name?'block':'none';
+  var tabs=document.querySelectorAll('.tab');
+  for(var i=0;i<tabs.length;i++)tabs[i].classList.remove('on');
+  btn.classList.add('on');
+}
+
+function openGuide(k){
+  var g=GUIAS[k];
+  document.getElementById('guideModal').classList.add('on');
+  document.getElementById('mhdr').style.background='linear-gradient(145deg,'+g.color+'e0,'+g.color+')';
+  document.getElementById('micon').textContent=g.icon;
+  document.getElementById('mtitle').textContent=g.title;
+  document.getElementById('msub').textContent=g.sub;
+  var h='';
+  for(var i=0;i<g.sections.length;i++){
+    var s=g.sections[i];
+    h+='<div class="msec"><div class="msh" style="color:'+g.color+'"><span class="mi">'+s.icon+'</span>'+s.h+'</div>';
+    for(var j=0;j<s.tips.length;j++)
+      h+='<div class="tip" style="border-color:'+g.color+'50"><span class="mi" style="color:'+g.color+'">chevron_right</span><span class="tipt">'+s.tips[j]+'</span></div>';
+    h+='</div>';
+  }
+  document.getElementById('mbody').innerHTML=h;
+}
+
+function closeGuide(){document.getElementById('guideModal').classList.remove('on')}
+
+/* ── INFO MODAL ── */
+function openInfo(key){
+  var info=INFOS[key];
+  if(!info)return;
+  document.getElementById('infoCategory').textContent=info.category||'';
+  document.getElementById('infoTitle').textContent=info.title||'';
+  var img=document.getElementById('infoImg');
+  img.src=info.img||'';
+  img.style.display=info.img?'block':'none';
+  document.getElementById('infoHero').style.background=info.img?'var(--navy-dark)':'linear-gradient(145deg,var(--navy-dark),var(--navy))';
+
+  var bodyH='';
+  // description
+  if(info.desc){
+    var paras=info.desc.split('\n\n');
+    bodyH+='<div style="margin-bottom:18px">';
+    for(var i=0;i<paras.length;i++)
+      bodyH+='<p class="info-desc" style="margin-bottom:'+(i<paras.length-1?'12px':'0')+'">'+paras[i]+'</p>';
+    bodyH+='</div>';
+  }
+  // tips
+  if(info.tips&&info.tips.length>0){
+    bodyH+='<div class="info-section-label"><span class="mi">tips_and_updates</span>DICAS PRÁTICAS</div>';
+    for(var i=0;i<info.tips.length;i++)
+      bodyH+='<div class="info-tip"><span class="mi">check_circle</span><span class="info-tip-text">'+info.tips[i]+'</span></div>';
+  }
+  // actions
+  bodyH+='<div class="info-actions">';
+  if(info.maps)
+    bodyH+='<a class="info-action-btn" href="'+info.maps+'" target="_blank" rel="noopener"><span class="mi" style="color:#4285f4">map</span><div><div class="info-action-label">Ver no Google Maps</div><div class="info-action-sub">Localização e rotas</div></div><div class="info-action-arr"><span class="mi">open_in_new</span></div></a>';
+  if(info.ig)
+    bodyH+='<a class="info-action-btn" href="'+info.ig+'" target="_blank" rel="noopener"><span class="mi" style="color:#e1306c">photo_camera</span><div><div class="info-action-label">Instagram</div><div class="info-action-sub">Fotos e informações</div></div><div class="info-action-arr"><span class="mi">open_in_new</span></div></a>';
+  if(info.website)
+    bodyH+='<a class="info-action-btn" href="'+info.website+'" target="_blank" rel="noopener"><span class="mi" style="color:var(--navy)">language</span><div><div class="info-action-label">Site Oficial</div><div class="info-action-sub">Ingressos e horários</div></div><div class="info-action-arr"><span class="mi">open_in_new</span></div></a>';
+  bodyH+='</div>';
+  bodyH+='<div style="height:30px"></div>';
+
+  document.getElementById('infoBody').innerHTML=bodyH;
+  var overlay=document.getElementById('infoOverlay');
+  overlay.classList.add('on');
+  overlay.scrollTop=0;
+}
+
+function closeInfo(){document.getElementById('infoOverlay').classList.remove('on')}
+
+init();
+</script>
+</body>
+</html>
